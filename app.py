@@ -11,7 +11,7 @@ app.secret_key = os.urandom(24)
 
 CLIENT_ID = os.getenv("DISCORD_CLIENT_ID")
 CLIENT_SECRET = os.getenv("DISCORD_CLIENT_SECRET")
-REDIRECT_URI = "https://your-render-url.onrender.com/callback"  # Replace this after deployment
+REDIRECT_URI = os.getenv("REDIRECT_URI")
 API_BASE_URL = "https://discord.com/api"
 OAUTH_SCOPE = "identify"
 

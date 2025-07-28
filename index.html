@@ -1,0 +1,23 @@
+<!-- discord_points_site/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Points Site</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 2em; }
+    .card { border: 1px solid #ccc; padding: 2em; border-radius: 8px; display: inline-block; }
+  </style>
+</head>
+<body>
+  {% if user %}
+    <div class="card">
+      <h2>Welcome, {{ user.username }}!</h2>
+      <p>You have <strong>{{ points }}</strong> points.</p>
+      <a href="/logout">Logout</a>
+    </div>
+  {% else %}
+    <h2>Welcome!</h2>
+    <a href="/login">Log in with Discord</a>
+  {% endif %}
+</body>
+</html>

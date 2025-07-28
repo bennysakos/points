@@ -23,7 +23,10 @@ user_points = {
 @app.route("/")
 def index():
     user = session.get("user")
-    points = user_points.get(user["id"], 0) if user else None
+    if not user:
+        return redirect("/login")
+    
+    points = user_points.get(user["id"], 0)
     return render_template("index.html", user=user, points=points)
 
 @app.route("/login")

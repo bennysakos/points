@@ -1,23 +1,25 @@
-<!-- discord_points_site/templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Points Site</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 2em; }
-    .card { border: 1px solid #ccc; padding: 2em; border-radius: 8px; display: inline-block; }
-  </style>
+    <meta charset="UTF-8">
+    <title>{{ user.username }}'s Points</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  {% if user %}
-    <div class="card">
-      <h2>Welcome, {{ user.username }}!</h2>
-      <p>You have <strong>{{ points }}</strong> points.</p>
-      <a href="/logout">Logout</a>
+    <div class="background"></div>
+    <nav>
+        <div class="nav-icons">
+            <a href="/shop"><img src="/static/cart.png" class="icon" /></a>
+            <img src="{{ user.avatar }}" class="avatar" />
+        </div>
+    </nav>
+
+    <div class="center-container">
+        <div class="points">{{ points }}</div>
+        <div class="profile">
+            <img class="avatar-circle" src="https://cdn.discordapp.com/avatars/{{ user.id }}/{{ user.avatar }}.png" />
+            <h2 class="username">{{ user.username }}</h2>
+        </div>
     </div>
-  {% else %}
-    <h2>Welcome!</h2>
-    <a href="/login">Log in with Discord</a>
-  {% endif %}
 </body>
 </html>
